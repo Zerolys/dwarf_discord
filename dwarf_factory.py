@@ -100,7 +100,7 @@ class Dwarf:
         mined_value = np.around(random.uniform(0.1, 10.), 1)
         self.carried_minerals[mineral] += mined_value
         if verbose:
-            output = "You have mined %s %s!" % (mined_value, mineral[1:])
+            output = "%s has mined %s %s!" % (self.name, mined_value, mineral[1:])
             return output
     
     def carry_weight(self):

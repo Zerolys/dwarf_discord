@@ -7,8 +7,9 @@ def pairwise(iterable):
     next(b, None)
     return zip(a, b)
 
-def love_compute(name_1, name_2, word, normalize=False):
-    string = get_name_num(name_1, name_2, word)
+def love_compute(name_1, name_2, word, normalize=False, string=None):
+    if not string:
+        string = get_name_num(name_1, name_2, word)
     output = ""
     for a, b in pairwise(string):
         c = int(a) + int(b)
@@ -16,7 +17,7 @@ def love_compute(name_1, name_2, word, normalize=False):
             c = int(str(c)[0]) + int(str(c)[1])
         output += str(c)
     if len(output) > 2:
-        output = love_compute(output)
+        output = love_compute(name_1, name_2, word, normalize=False, string=output)
     if normalize:
         X_std = (int(output) - 11) / (99 - 11)
         X_scaled = X_std * (100 - 0) + 0

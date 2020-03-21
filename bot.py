@@ -38,7 +38,6 @@ async def on_ready():
 @bot.command(name='affinite', help="Affinite entre deux personnes selon un critere")
 async def compute_relation(ctx, user1: str, user2: str, word: str):
     guild = discord.utils.find(lambda g: g.name == GUILD, bot.guilds)
-    print(user1)
     data = OrderedDict(
         name_1=user1,
         name_2=user2,
@@ -58,7 +57,7 @@ async def compute_relation(ctx, user1: str, user2: str, word: str):
     await ctx.send(output)
 
 
-@bot.command(name='creuse', help="Mine random, amount max = 10")
+@bot.command(name='creuse', help="Mine random, amount max: 5")
 async def mine(ctx, amount:int = 1):
     dwarf = ctx.author
 
